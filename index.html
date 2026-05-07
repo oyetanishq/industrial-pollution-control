@@ -319,6 +319,9 @@
                 font-size: 0.88rem;
                 margin: 10px 0;
                 overflow-x: auto;
+                white-space: pre-line;
+                word-break: break-word;
+                overflow-wrap: anywhere;
                 color: #1a1a2e;
             }
 
@@ -390,6 +393,214 @@
                 }
             }
 
+            /* ── MOBILE RESPONSIVE (< 768px) ── */
+            @media (max-width: 767px) {
+                body {
+                    font-size: 14px;
+                }
+                
+                #sidebar {
+                    position: fixed;
+                    left: -280px;
+                    width: 280px;
+                    height: 100vh;
+                    transition: left 0.3s ease;
+                    z-index: 1000;
+                    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                }
+                
+                #sidebar.open {
+                    left: 0;
+                }
+                
+                #main {
+                    margin-left: 0;
+                    width: 100%;
+                }
+                
+                .page-header {
+                    padding: 30px 20px;
+                    border-bottom: 3px solid var(--accent3);
+                }
+                
+                .page-header h1 {
+                    font-size: 1.6rem;
+                    margin-bottom: 8px;
+                }
+                
+                .page-header p {
+                    font-size: 0.8rem;
+                }
+                
+                .content {
+                    padding: 25px 15px 50px;
+                    max-width: 100%;
+                }
+                
+                .unit {
+                    margin-bottom: 40px;
+                }
+                
+                .unit-header {
+                    padding: 15px 20px;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                }
+                
+                .unit-header h2 {
+                    font-size: 1.2rem;
+                }
+                
+                .unit-header .num {
+                    font-size: 0.6rem;
+                }
+                
+                .unit-header .lec {
+                    margin-left: 0;
+                    font-size: 0.6rem;
+                    padding: 2px 8px;
+                }
+                
+                .unit-body {
+                    padding: 20px 15px;
+                }
+                
+                .topic {
+                    margin-bottom: 25px;
+                }
+                
+                .topic > h3 {
+                    font-size: 1rem;
+                    padding-bottom: 4px;
+                }
+                
+                .topic > h4 {
+                    font-size: 0.75rem;
+                    margin: 12px 0 6px;
+                }
+                
+                .topic p {
+                    font-size: 0.9rem;
+                    margin-bottom: 8px;
+                }
+                
+                .topic ul, .topic ol {
+                    padding-left: 16px;
+                    margin-bottom: 8px;
+                    font-size: 0.9rem;
+                }
+                
+                .topic li {
+                    margin-bottom: 3px;
+                }
+                
+                .box {
+                    padding: 10px 12px;
+                    margin: 10px 0;
+                    border-radius: 6px;
+                }
+                
+                .box h5 {
+                    font-size: 0.65rem;
+                    margin-bottom: 4px;
+                }
+                
+                .box p, .box li {
+                    font-size: 0.85rem;
+                }
+                
+                .formula {
+                    font-size: 0.75rem;
+                    padding: 10px 12px;
+                    margin: 8px 0;
+                    overflow-x: auto;
+                }
+                
+                .styled-table {
+                    font-size: 0.75rem;
+                    margin: 10px 0;
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+                
+                .styled-table th, .styled-table td {
+                    padding: 6px 8px;
+                    font-size: 0.7rem;
+                }
+                
+                .grid-2, .grid-3 {
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+                
+                .mini-card {
+                    padding: 10px 12px;
+                }
+                
+                .mini-card h6 {
+                    font-size: 0.65rem;
+                    margin-bottom: 4px;
+                }
+                
+                .mini-card p, .mini-card li {
+                    font-size: 0.75rem;
+                }
+                
+                .back-top {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 1rem;
+                    bottom: 20px;
+                    right: 20px;
+                }
+            }
+
+            /* ── TABLET RESPONSIVE (768px - 1023px) ── */
+            @media (min-width: 768px) and (max-width: 1023px) {
+                body {
+                    font-size: 14px;
+                }
+                
+                #sidebar {
+                    width: 220px;
+                }
+                
+                #main {
+                    margin-left: 220px;
+                }
+                
+                .content {
+                    padding: 40px 30px 60px;
+                    max-width: 100%;
+                }
+                
+                .page-header {
+                    padding: 40px 30px;
+                }
+                
+                .page-header h1 {
+                    font-size: 2rem;
+                }
+                
+                .unit-header h2 {
+                    font-size: 1.3rem;
+                }
+                
+                .topic > h3 {
+                    font-size: 1.1rem;
+                }
+                
+                .grid-3 {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            /* ── DESKTOP RESPONSIVE (> 1024px) ── */
+            @media (min-width: 1024px) {
+                /* Default desktop styles already applied */
+            }
+
             .mini-card {
                 background: var(--bg);
                 border: 1px solid var(--border);
@@ -408,6 +619,36 @@
             .mini-card p,
             .mini-card li {
                 font-size: 0.82rem;
+            }
+
+            /* ── HAMBURGER MENU ── */
+            .hamburger {
+                display: none;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 999;
+                background: var(--accent1);
+                border: none;
+                color: white;
+                font-size: 28px;
+                cursor: pointer;
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            .hamburger:hover {
+                background: var(--accent2);
+            }
+            
+            @media (max-width: 767px) {
+                .hamburger {
+                    display: flex;
+                }
             }
 
             /* ── BACK TO TOP ── */
@@ -519,6 +760,7 @@
         </nav>
 
         <!-- MAIN -->
+        <button class="hamburger" id="hamburger" title="Toggle menu">☰</button>
         <div id="main">
             <div class="page-header">
                 <h1>IPC – Environmental Science<br />Complete Theory Notes</h1>
@@ -3719,9 +3961,31 @@
         <a href="#" class="back-top" title="Back to top">↑</a>
 
         <script>
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const sidebar = document.getElementById('sidebar');
+            const navLinks = document.querySelectorAll('#sidebar nav a');
+
+            hamburger.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+
+            // Close sidebar when clicking on a link
+            navLinks.forEach((link) => {
+                link.addEventListener('click', () => {
+                    sidebar.classList.remove('open');
+                });
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+                    sidebar.classList.remove('open');
+                }
+            });
+
             // Highlight active nav link on scroll
             const sections = document.querySelectorAll("[id]");
-            const navLinks = document.querySelectorAll("#sidebar nav a");
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
